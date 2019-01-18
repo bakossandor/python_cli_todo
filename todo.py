@@ -15,4 +15,5 @@ def cli(add, delete):
         result = usedb(False, True, None, delete)
     else:
         result = usedb()
-    click.echo(result)
+    for n in result:
+        print(f"{n[1]} - {n[0]}")
