@@ -12,7 +12,6 @@ def cli(add, delete):
     elif add and delete:
         result = usedb(True, True, [random.randint(0, 1000), add], delete)
     elif delete and add is None:
-        print(delete)
         result = usedb(False, True, None, delete)
     else:
         result = usedb()

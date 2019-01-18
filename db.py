@@ -8,8 +8,7 @@ def usedb(add=False, delete=False, data=None, delete_num=None):
     if add == True:
         insert(c, data)
     if delete == True:
-        print(delete_num)
-        delete(c, delete_num)
+        delete_this(c, delete_num)
     conn.commit()
     c.execute('SELECT * FROM todo ORDER BY num')
     resp = c.fetchall()
@@ -19,6 +18,5 @@ def usedb(add=False, delete=False, data=None, delete_num=None):
 def insert(cursor, data):
     cursor.execute(f"INSERT INTO todo VALUES ({data[0]}, '{data[1]}')")
 
-def delete(cursor, delete_num):
-    print(delete_num)
+def delete_this(cursor, delete_num):
     cursor.execute(f"DELETE FROM todo WHERE num = {delete_num}")
